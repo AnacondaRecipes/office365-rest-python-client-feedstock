@@ -45,5 +45,6 @@ extra:
     reason: Client request
   recipe-maintainers:
     - ianaobi
+    - bkreider
     - marcelotrevisani
     - rxm7706

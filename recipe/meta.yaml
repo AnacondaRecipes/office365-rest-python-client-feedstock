@@ -1,25 +1,25 @@
 {% set name = "Office365-REST-Python-Client" %}
-{% set version = "2.5.5" %}
+{% set version = "2.5.12" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/Office365-REST-Python-Client-{{ version }}.tar.gz
-  sha256: 2396f3ac1bc544646abff3db9e45f0e43a28d20668ed9a4736554c5262e70a86
+  url: https://github.com/vgrem/{{ name }}/archive/refs/tags/{{ version }}.tar.gz
+  sha256: c5d4fbf80d1f53b752360746bbaf6f176ace1c8f82feff27683578cbfa23d562
 
 build:
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
+  skip: True  # [py<38]
 
 requirements:
   host:
-    - python >=3.8
+    - python
     - pip
   run:
-    - python >=3.8
+    - python
     - requests
     - msal
     - pytz
@@ -38,6 +38,9 @@ about:
   summary: Microsoft 365 & Microsoft Graph Library for Python
   license: MIT
   license_file: LICENSE
+  license_family: MIT
+  doc_url: https://github.com/vgrem/Office365-REST-Python-Client/blob/master/README.md
+  dev_url: https://github.com/vgrem/Office365-REST-Python-Client
 
 extra:
   recipe-maintainers:
